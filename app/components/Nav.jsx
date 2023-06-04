@@ -20,7 +20,7 @@ function Nav() {
 
                 <div className="w-0.5 bg-neutral-700" />
 
-                <div className="flex gap-2 text-white">
+                <div className="flex gap-2 text-white cursor-pointer">
                     <Image src="user.svg" alt="" width={20} height={25} />
                     <Link href={"/login"}>Sign in</Link>
                 </div>

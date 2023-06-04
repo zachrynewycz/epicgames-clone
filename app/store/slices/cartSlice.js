@@ -1,33 +1,20 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
-interface CartItem {
-    name: string;
-    price: string;
-    portraitBackgroundImageUrl: string;
-    ratingImageUrl: string;
-}
-
-interface CartState {
-    items: CartItem[];
-    subtotal: number;
-    discount: number;
-}
-
-const INITIAL_STATE: CartState = {
+const INITIAL_STATE = {
     items: [],
     subtotal: 0,
     discount: 0,
 };
 
-const cartSlice = createSlice({
+export const cartSlice = createSlice({
     name: "cart",
     initialState: INITIAL_STATE,
     reducers: {
-        addToCart: (state, action: PayloadAction<CartItem>) => {
+        addToCart: (state, action) => {
             state.items = [...state.items, action.payload];
             state.subtotal += Number(action.payload.price);
         },
-        removeFromCart: (state, action: PayloadAction<{ price: number; name: string }>) => {
+        removeFromCart: (state, action) => {
             state.items = state.items.filter((item) => item.name !== action.payload.name);
             state.subtotal += Number(action.payload.price);
         },
@@ -41,4 +28,3 @@ const cartSlice = createSlice({
 });
 
 export const { addToCart, removeFromCart, addDiscount, removeDiscount } = cartSlice.actions;
-export default cartSlice.reducer;

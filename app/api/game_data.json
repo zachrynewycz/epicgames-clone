@@ -43263,9 +43263,9 @@
     },
     "battlefield-2042": {
         "price": {
-            "sale": true,
-            "salePercent": "75",
-            "salePrice": "14.99",
+            "sale": false,
+            "salePercent": "0",
+            "salePrice": "0",
             "current": "59.99"
         },
         "productRatings": {
