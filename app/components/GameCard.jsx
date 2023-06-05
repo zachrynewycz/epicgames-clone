@@ -1,11 +1,13 @@
 import Image from "next/image";
 import fetchGameData from "../api/fetchGameData";
+import { useRouter } from "next/navigation";
 
 function GameCard({ showFullImage = false, game }) {
     const data = fetchGameData(game);
+    const router = useRouter();
 
     return (
-        <div>
+        <div onClick={() => router.push(`/${data._title}`)}>
             <div className="relative cursor-pointer">
                 <Image
                     className="rounded-md"
@@ -14,9 +16,8 @@ function GameCard({ showFullImage = false, game }) {
                             ? data.pages[0].data["hero"].backgroundImageUrl
                             : data.pages[0].data["hero"].portraitBackgroundImageUrl
                     }
-                    height={0}
                     width={500}
-                    alt=""
+                    height={0}
                 />
                 <div className="absolute inset-0 bg-white opacity-0 hover:opacity-20 transition-opacity duration-300 rounded-md" />
             </div>
