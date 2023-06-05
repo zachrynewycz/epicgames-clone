@@ -10,7 +10,7 @@ function Footer() {
     ];
 
     return (
-        <footer className="bg-[#202020] py-8 px-12">
+        <footer className="bg-[#202020] py-8 px-12 absolute left-0 w-full">
             <div className="max-w-lg">
                 <h2 className="text-[#CCCCCC] font-bold opacity-40">Resources</h2>
 

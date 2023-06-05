@@ -1,13 +1,11 @@
 function LargePreview({ game }) {
-    console.log(game);
-
     return (
         <div
             style={{ backgroundImage: `url(${game.pages[0].data.hero.backgroundImageUrl})` }}
-            className="col-span-4 relative rounded-xl px-10 bg-cover ease-in duration-200 mx-3"
+            className="col-span-4 relative rounded-xl px-10 bg-cover ease-in duration-200 mx-3 "
         >
             <div className="absolute bottom-10">
-                <h1 className="mb-5 text-white text-xl font-bold">
+                <h1 className="mb-3 text-white text-2xl font-bold">
                     Starting at ${game.price.hasSale ? game.price.salePrice : game.price.current}
                 </h1>
 

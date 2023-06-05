@@ -1,18 +1,18 @@
 "use client";
-import { Provider } from "react-redux";
-import store from "./store/store";
 import MegaSaleSpotlight from "./components/MegaSaleSpotlight";
 import ThreeGameSpotlight from "./components/ThreeGameSpotlight";
 import ShowcaseBanner from "./components/showcaseBanner/ShowcaseBanner";
+import Footer from "./components/Footer";
+import Nav from "./components/Nav";
 
-export default function Home() {
+export default function HomePage() {
     return (
-        <main>
-            <Provider store={store}>
-                <ShowcaseBanner />
-                <MegaSaleSpotlight />
-                <ThreeGameSpotlight />
-            </Provider>
-        </main>
+        <>
+            <Nav />
+            <ShowcaseBanner />
+            <MegaSaleSpotlight />
+            <ThreeGameSpotlight />
+            <Footer />
+        </>
     );
 }

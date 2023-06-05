@@ -10,6 +10,10 @@ const nextConfig = {
                 protocol: "https",
                 hostname: "cdn1.epicgames.com",
             },
+            {
+                protocol: "https",
+                hostname: "lh3.googleusercontent.com",
+            },
         ],
     },
 };
