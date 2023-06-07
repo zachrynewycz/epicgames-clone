@@ -8,7 +8,10 @@ function Nav() {
                 <input className="rounded-full pl-5 py-2 text-sm bg-[#202020] text-white" placeholder="Search store" />
 
                 <ul className="flex text-neutral-400 gap-5">
-                    <li className="text-white">Discover</li>
+                    <Link className="text-white" href={"/"}>
+                        Discover
+                    </Link>
+
                     <li>Browse</li>
                     <li>News</li>
                 </ul>

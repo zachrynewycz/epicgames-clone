@@ -23,6 +23,7 @@ function GamePage() {
                         images={data.pages[0].data.carousel.items}
                         backgroundImage={data.pages[0].data.hero.backgroundImageUrl}
                     />
+
                     <p className="text-white mt-10 text-xl">{data.pages[0].data.about.shortDescription}</p>
                 </div>
 
