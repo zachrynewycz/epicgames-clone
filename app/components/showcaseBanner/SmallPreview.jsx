@@ -2,7 +2,7 @@ import Image from "next/image";
 
 function SmallPreview({ setSelectedGame, gameData }) {
     return (
-        <div className="col-span-1">
+        <div>
             {gameData.map((game) => (
                 <div
                     className=" hover:bg-neutral-800 cursor-pointer pl-3 rounded-xl py-3"
@@ -16,6 +16,7 @@ function SmallPreview({ setSelectedGame, gameData }) {
                         width={65}
                         height={0}
                     />
+
                     <h1 className="inline text-white">{game.productName}</h1>
                 </div>
             ))}

@@ -8,7 +8,7 @@ function Screenshots({ images, backgroundImage }) {
         <div>
             <Image className="rounded-md" src={selectedImage} alt="" width={1000} height={0} />
 
-            <div className="flex gap-5 mt-10 justify-center">
+            <div className="flex gap-5 mt-10 justify-center overflow-x-scroll styled-scrollbars mx-10">
                 {images
                     ?.filter((image) => image.image.src)
                     ?.map((image) => (

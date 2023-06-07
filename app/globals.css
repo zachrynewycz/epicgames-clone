@@ -6,4 +6,17 @@
     input::placeholder {
         color: #b8b8b8;
     }
+
+    .styled-scrollbars::-webkit-scrollbar {
+        height: 8px;
+    }
+    .styled-scrollbars::-webkit-scrollbar-thumb {
+        /* Foreground */
+        background: #838383;
+        border-radius: 100px;
+    }
+    .styled-scrollbars::-webkit-scrollbar-track {
+        /* Background */
+        background: transparent;
+    }
 }
