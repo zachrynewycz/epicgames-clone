@@ -16,7 +16,12 @@ function ShowcaseBanner() {
     return (
         <div className="grid grid-cols-5 my-5 gap-5">
             <LargePreview game={selectedGame} />
-            <SmallPreview gameData={gameData} setSelectedGame={setSelectedGame} />
+
+            <div>
+                {gameData.map((game) => (
+                    <SmallPreview key={game._id} gameData={game} setSelectedGame={setSelectedGame} />
+                ))}
+            </div>
         </div>
     );
 }

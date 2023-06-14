@@ -5,20 +5,19 @@ import { removeFromWishlist } from "../store/slices/wishlistSlice";
 import { addToCart } from "../store/slices/cartSlice";
 import { useRouter } from "next/navigation";
 
-function WishlistItem() {
+function WishlistItems() {
     const router = useRouter();
     const dispatch = useDispatch();
-    const { items } = useSelector((state) => state.wishlist);
+    const items = useSelector((state) => state.wishlist.items);
 
     if (items.length === 0) return <EmptyListMessage />;
 
     return (
         <>
             {items.map((game) => (
-                <div key={game._id} className="px-5 py-5 bg-neutral-800 rounded-md mt-5 text-white max-w-5xl relative">
+                <div key={game._id} className="px-5 py-5 bg-neutral-800 rounded-md mt-5 text-white max-w-4xl relative">
                     <div className="flex gap-5">
                         <Image
-                            className="rounded-sm"
                             src={game.pages[0].data["hero"].portraitBackgroundImageUrl}
                             width={125}
                             height={0}
@@ -40,7 +39,7 @@ function WishlistItem() {
                     <div className="absolute right-5 bottom-5">
                         <button
                             onClick={() => dispatch(removeFromWishlist(game.productName))}
-                            className="underline text-neutral-400 mr-7"
+                            className="underline text-neutral-400 mr-7 hover:text-white"
                         >
                             Remove
                         </button>
@@ -61,4 +60,4 @@ function WishlistItem() {
     );
 }
 
-export default WishlistItem;
+export default WishlistItems;

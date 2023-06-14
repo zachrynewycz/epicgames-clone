@@ -1,12 +1,11 @@
 "use client";
 import Nav from "../components/nav/Nav";
-import WishlistItem from "./WishlistItem";
+import WishlistItems from "./WishlistItems";
 
 function WishlistPage() {
     return (
         <>
             <Nav />
-
             <h1 className="text-5xl text-white mb-5">Wishlist</h1>
             <h3 className="inline text-neutral-400">Sort by:</h3>
 
@@ -15,7 +14,7 @@ function WishlistPage() {
                 <option>Recently Added</option>
             </select>
 
-            <WishlistItem />
+            <WishlistItems />
         </>
     );
 }

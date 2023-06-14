@@ -14,7 +14,7 @@ function SigninPage() {
         <div className="flex items-center justify-center h-screen">
             <div className="bg-[#202020] rounded-md text-white text-center py-12 px-10">
                 <>
-                    <Image className="mx-auto" src="/epic-logo.svg" width={50} height={0} />
+                    <Image className="mx-auto" src="/epic-logo.svg" width={50} height={0} alt="" />
                     <h1 className="mt-12 mb-5 text-xl">Sign In</h1>
                 </>
 
@@ -23,7 +23,7 @@ function SigninPage() {
                     onClick={() => signIn("google", { callbackUrl: "/" })}
                 >
                     <div className="bg-white py-4 px-7 rounded-l-md">
-                        <Image className="mx-auto" src="/google.svg" width={20} height={0} />
+                        <Image className="mx-auto" src="/google.svg" width={20} height={0} alt="" />
                     </div>
                     <h1 className="bg-[#2b2b2b] pr-24 pl-3 py-4 rounded-r-md text-sm hover:bg-neutral-700 ease-in duration-100">
                         Sign in with Google

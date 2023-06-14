@@ -11,6 +11,7 @@ function GameCard({ showFullImage = false, game }) {
             <div className="relative cursor-pointer">
                 <Image
                     className="rounded-md"
+                    alt=""
                     src={
                         showFullImage
                             ? data.pages[0].data["hero"].backgroundImageUrl

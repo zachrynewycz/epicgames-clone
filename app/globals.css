@@ -19,4 +19,16 @@
         /* Background */
         background: transparent;
     }
+
+    option {
+        background-color: #838383;
+        padding: 2px;
+    }
+
+    .table-spacing td {
+        padding: 10px 0;
+    }
+    .table-spacing td:nth-child(2) {
+        text-align: right;
+    }
 }
