@@ -8,14 +8,14 @@ function CartItems() {
     const dispatch = useDispatch();
     const items = useSelector((state) => state.cart.items);
 
-    if (items.length === 0) return <EmptyCartMessage />;
+    if (items?.length === 0) return <EmptyCartMessage />;
 
     return (
         <>
-            {items.map((game) => (
+            {items?.map((game) => (
                 <div
                     key={game._id}
-                    className="px-5 py-5 bg-neutral-800 rounded-md mb-5 text-white max-w-4xl relative col-span-3"
+                    className="px-5 py-5 bg-neutral-800 rounded-md mb-5 text-white max-w-4xl relative col-span-3 h-fit"
                 >
                     <div className="flex gap-5">
                         <Image
@@ -37,7 +37,7 @@ function CartItems() {
                         </div>
                     </div>
 
-                    <div className="absolute right-5 bottom-5">
+                    <div className="absolute right-0 bottom-5">
                         <button
                             onClick={() => {
                                 dispatch(addToWishlist(game));

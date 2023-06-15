@@ -4,7 +4,6 @@ import GameAttributes from "./GameAttributes";
 import PurchaseActionButtons from "./PurchaseActionButtons";
 
 function Sidebar({ data }) {
-    console.log(data);
     return (
         <div className="mt-32 col-span-2">
             <Image className="px-5" src={data.pages[0].data.hero.logoImage.src} width={270} height={0} alt="" />

@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { doc, collection, addDoc, setDoc } from "firebase/firestore";
+import { db } from "../../../firebase";
 
 const INITIAL_STATE = {
     items: [],
-    subtotal: 0,
-    discount: 0,
 };
 
 export const cartSlice = createSlice({
@@ -12,19 +12,30 @@ export const cartSlice = createSlice({
     reducers: {
         addToCart: (state, action) => {
             state.items = [...state.items, action.payload];
-            state.subtotal += Number(action.payload.price);
         },
         removeFromCart: (state, action) => {
             state.items = state.items.filter((item) => item.name !== action.payload.name);
-            state.subtotal += Number(action.payload.price);
         },
-        addDiscount: (state, action) => {
-            state.subtotal -= state.subtotal * (action.payload / 100);
-        },
-        removeDiscount: (state, action) => {
-            state.subtotal += state.subtotal * (action.payload / 100);
+        addToLibrary: async (state, action) => {
+            try {
+                const email = action.payload;
+                await setDoc(doc(collection(db, "library"), email), {});
+
+                const userDocRef = doc(db, "library", email);
+                const gamesCollectionRef = collection(userDocRef, "games");
+
+                for (const item of state.items) {
+                    await addDoc(gamesCollectionRef, {
+                        portraitBackgroundImageUrl: item.pages[0].data["hero"].portraitBackgroundImageUrl,
+                        title: item.productName,
+                    });
+                }
+                state.items = [];
+            } catch (error) {
+                console.error("Error adding to library:", error);
+            }
         },
     },
 });
 
-export const { addToCart, removeFromCart, addDiscount, removeDiscount } = cartSlice.actions;
+export const { addToCart, removeFromCart, addToLibrary } = cartSlice.actions;

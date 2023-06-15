@@ -23,7 +23,7 @@ function Nav() {
                 <Link href={"/wishlist"}>Wishlist</Link>
                 <Link href={"/cart"}>Cart</Link>
 
-                {cartItems.length > 0 && (
+                {cartItems?.length > 0 && (
                     <span className="bg-white text-black rounded-full px-3 font-bold text-sm -ml-2">
                         {cartItems.length}
                     </span>

@@ -11,8 +11,9 @@ function Screenshots({ images, backgroundImage }) {
             <div className="flex gap-5 mt-10 justify-center overflow-x-scroll styled-scrollbars mx-10">
                 {images
                     ?.filter((image) => image.image.src)
-                    ?.map((image) => (
+                    ?.map((image, idx) => (
                         <Image
+                            key={idx}
                             onClick={() => setSelectedImage(image.image.src)}
                             className="rounded-sm cursor-pointer"
                             src={image.image.src}
