@@ -11,7 +11,11 @@ export const cartSlice = createSlice({
     initialState: INITIAL_STATE,
     reducers: {
         addToCart: (state, action) => {
-            state.items = [...state.items, action.payload];
+            const isDuplicate = state.items?.some((item) => item._title === action.payload._title);
+
+            if (!isDuplicate) {
+                state.items = [...state.items, action.payload];
+            }
         },
         removeFromCart: (state, action) => {
             state.items = state.items.filter((item) => item.name !== action.payload.name);

@@ -5,23 +5,23 @@ import { addToWishlist } from "../store/slices/wishlistSlice";
 import { addToCart } from "../store/slices/cartSlice";
 
 function PurchaseActionButtons({ data }) {
-    const router = useRouter();
     const { status } = useSession();
+    const router = useRouter();
     const dispatch = useDispatch();
 
-    const handleClick = (callback) => {
+    const handleAuthorizedAction = (callback) => {
         if (status === "unauthenticated") {
             router.push("/signin");
-            return;
+        } else {
+            callback();
         }
-        callback();
     };
 
     return (
         <>
             <button
                 onClick={() =>
-                    handleClick(() => {
+                    handleAuthorizedAction(() => {
                         dispatch(addToCart(data));
                         router.push("/cart");
                     })
@@ -33,14 +33,14 @@ function PurchaseActionButtons({ data }) {
             </button>
 
             <button
-                onClick={() => handleClick(() => dispatch(addToCart(data)))}
+                onClick={() => handleAuthorizedAction(() => dispatch(addToCart(data)))}
                 className="w-full border-white border-[1px] rounded-sm text-white text-sm py-3 mt-3 hover:bg-neutral-700"
             >
                 ADD TO CART
             </button>
 
             <button
-                onClick={() => handleClick(() => dispatch(addToWishlist(data)))}
+                onClick={() => handleAuthorizedAction(() => dispatch(addToWishlist(data)))}
                 className="w-full border-white border-[1px] rounded-sm text-white text-[10px] py-2 mt-3 hover:bg-neutral-700 mb-5"
             >
                 ADD TO WISHLIST

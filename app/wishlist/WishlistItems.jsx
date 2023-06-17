@@ -8,13 +8,13 @@ import { useRouter } from "next/navigation";
 function WishlistItems() {
     const router = useRouter();
     const dispatch = useDispatch();
-    const items = useSelector((state) => state.wishlist.items);
+    const itemsInWishlist = useSelector((state) => state.wishlist.items);
 
-    if (items.length === 0) return <EmptyListMessage />;
+    if (itemsInWishlist.length === 0) return <EmptyListMessage />;
 
     return (
         <>
-            {items.map((game) => (
+            {itemsInWishlist.map((game) => (
                 <div key={game._id} className="px-5 py-5 bg-neutral-800 rounded-md mt-5 text-white max-w-4xl relative">
                     <div className="flex gap-5">
                         <Image

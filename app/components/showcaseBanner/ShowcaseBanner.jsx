@@ -3,7 +3,7 @@ import SmallPreview from "./SmallPreview";
 import LargePreview from "./LargePreview";
 import fetchGameData from "../../api/fetchGameData";
 
-const GAMES_TO_SHOWCASE = ["it-takes-two", "the-outlast-trials", "dead-by-daylight", "days-gone", "goat-simulator-3"];
+const GAMES_TO_SHOWCASE = ["it-takes-two", "the-outlast-trials", "overcooked-2", "days-gone", "goat-simulator-3"];
 
 function ShowcaseBanner() {
     const [gameData, setGameData] = useState([]);

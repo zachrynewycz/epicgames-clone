@@ -3,7 +3,7 @@ import UserAvatar from "./UserAvatar";
 import { useSelector } from "react-redux";
 
 function Nav() {
-    const cartItems = useSelector((state) => state.cart.items);
+    const itemsInCart = useSelector((state) => state.cart.items);
 
     return (
         <nav className="py-10 justify-between items-center flex">
@@ -23,9 +23,9 @@ function Nav() {
                 <Link href={"/wishlist"}>Wishlist</Link>
                 <Link href={"/cart"}>Cart</Link>
 
-                {cartItems?.length > 0 && (
+                {itemsInCart?.length > 0 && (
                     <span className="bg-white text-black rounded-full px-3 font-bold text-sm -ml-2">
-                        {cartItems.length}
+                        {itemsInCart.length}
                     </span>
                 )}
 

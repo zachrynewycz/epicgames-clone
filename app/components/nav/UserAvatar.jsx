@@ -36,7 +36,7 @@ function UserAvatar() {
             ref={dropdownRef}
             className="relative text-white cursor-pointer"
         >
-            <Image className="rounded-full" src={data?.user?.image} alt="" width={40} height={0} />
+            <img className="rounded-full w-10" src={data?.user?.image} />
 
             {showDropdown && (
                 <div className="absolute right-0 top-12 min-w-[15rem] bg-neutral-800 rounded-sm p-3 px-5">
