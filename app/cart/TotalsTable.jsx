@@ -2,8 +2,8 @@ import { useSelector } from "react-redux";
 
 function TotalsTable() {
     const itemsInCart = useSelector((state) => state.cart.items);
-    const currentPrices = itemsInCart?.reduce((total, item) => total + Number(item.price.current), 0);
-    const salePrices = itemsInCart?.reduce((total, item) => total + Number(item.price.salePrice), 0);
+    const currentPrices = itemsInCart.reduce((total, item) => total + Number(item.price.current), 0);
+    const salePrices = itemsInCart.reduce((total, item) => total + Number(item.price.salePrice), 0);
 
     return (
         <table className="text-white table-spacing">

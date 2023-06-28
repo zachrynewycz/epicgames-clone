@@ -8,7 +8,7 @@ function CartItems() {
     const dispatch = useDispatch();
     const itemsInCart = useSelector((state) => state.cart.items);
 
-    if (itemsInCart.length === 0) return <EmptyCartMessage />;
+    if (!itemsInCart || itemsInCart.length === 0) return <EmptyCartMessage />;
 
     return (
         <>

@@ -1,19 +1,14 @@
 "use client";
-import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import fetchGameData from "../api/fetchGameData";
 import Nav from "../components/nav/Nav";
 import Screenshots from "./Screenshots";
-import Sidebar from "./Sidebar";
+import Sidebar from "./_sidebar/Sidebar";
 import Ratings from "./Ratings";
 
 function GamePage() {
     const { id } = useParams();
-    const [data, setData] = useState(null);
-
-    useEffect(() => {
-        setData(fetchGameData(id));
-    }, []);
+    const data = fetchGameData(id);
 
     if (!data) return <h1 className="text-center text-white">Loading...</h1>;
 
@@ -32,7 +27,8 @@ function GamePage() {
 
                     <p className="text-white mt-10 text-xl mb-20">{data.pages[0].data.about.shortDescription}</p>
                 </div>
-                <Sidebar data={data} />
+
+                <Sidebar />
             </div>
         </>
     );

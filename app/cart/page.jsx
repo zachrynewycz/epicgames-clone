@@ -1,7 +1,7 @@
 "use client";
 import Nav from "../components/nav/Nav";
 import CartItems from "./CartItems";
-import Subtotals from "./Subtotals";
+import CartSummary from "./CartSummary";
 
 function CartPage() {
     return (
@@ -11,7 +11,7 @@ function CartPage() {
 
             <div className="grid grid-cols-4">
                 <CartItems />
-                <Subtotals />
+                <CartSummary />
             </div>
         </>
     );

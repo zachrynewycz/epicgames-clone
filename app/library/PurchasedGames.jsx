@@ -1,32 +1,33 @@
-import { useEffect, useState } from "react";
-import { doc, getDoc } from "firebase/firestore";
-import { useSession } from "next-auth/react";
-import { db } from "../../firebase";
 import Image from "next/image";
+import supabase from "../api/supabase";
+import { useSession } from "next-auth/react";
+import fetchGameData from "../api/fetchGameData";
 
-function PurchasedGames() {
-    const { data } = useSession();
-    const [games, setGames] = useState([]);
+async function getGames(email) {
+    const { data } = await supabase.from("users").select("library").eq("email", email);
+    return data[0].library.map((id) => fetchGameData(id));
+}
 
-    const userDocRef = doc(db, "library", data.user.email);
+async function PurchasedGames() {
+    const { data, status } = useSession();
+    const games = await getGames(data.user.email);
 
-    useEffect(() => {
-        getGamesFromFirebase();
-    }, []);
-
-    const getGamesFromFirebase = async () => {
-        const doc = await getDoc(userDocRef);
-        setGames(doc.data().games);
-    };
+    if (status === "loading") return <h1>Loading...</h1>;
 
     return (
         <div className="flex flex-wrap gap-10">
-            {games?.map((game, idx) => (
+            {games.map((game, idx) => (
                 <div key={idx}>
-                    <Image className="rounded-md" src={game.portraitBackgroundImageUrl} width={200} height={0} alt="" />
+                    <Image
+                        className="rounded-md"
+                        src={game.pages[0].data["hero"].portraitBackgroundImageUrl}
+                        width={200}
+                        height={0}
+                        alt=""
+                    />
 
-                    <div className="flex items-center justify-between">
-                        <h3 className="text-white mt-1 max-w-[10rem]">{game.title}</h3>
+                    <div className="flex items-center justify-between mt-2">
+                        <h3 className="text-white max-w-[10rem]">{game.productName}</h3>
                         <div className="text-white text-xs">•••</div>
                     </div>
                 </div>

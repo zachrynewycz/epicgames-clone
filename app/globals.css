@@ -30,4 +30,13 @@
     .table-spacing td:nth-child(2) {
         text-align: right;
     }
+
+    .attr-table tr {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px rgb(97, 97, 97) solid;
+        padding: 10px 0;
+        color: white;
+    }
 }
