@@ -9,14 +9,18 @@ function LibraryPage() {
     const { status } = useSession();
     const router = useRouter();
 
-    if (status === "unauthenticated") router.push("/signin");
+    if (status === "unauthenticated") return router.push("/signin");
 
     return (
         <>
-            <Nav />
-            <h1 className="text-5xl text-white mb-5">Library</h1>
-            <FilterOptions />
-            <PurchasedGames />
+            {status === "authenticated" && (
+                <>
+                    <Nav />
+                    <h1 className="text-5xl text-white mb-5">Library</h1>
+                    <FilterOptions />
+                    <PurchasedGames />
+                </>
+            )}
         </>
     );
 }
