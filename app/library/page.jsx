@@ -1,9 +1,16 @@
 "use client";
+import { useSession } from "next-auth/react";
 import Nav from "../components/nav/Nav";
 import FilterOptions from "./FilterOptions";
 import PurchasedGames from "./PurchasedGames";
+import { useRouter } from "next/navigation";
 
 function LibraryPage() {
+    const { status } = useSession();
+    const router = useRouter();
+
+    if (status === "unauthenticated") router.push("/signin");
+
     return (
         <>
             <Nav />
