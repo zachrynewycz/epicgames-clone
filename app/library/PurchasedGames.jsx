@@ -9,14 +9,12 @@ async function getGames(email) {
 }
 
 async function PurchasedGames() {
-    const { data, status } = useSession();
-    const games = await getGames(data.user.email);
-
-    if (status === "loading") return <h1>Loading...</h1>;
+    const { data } = useSession();
+    const gameData = await getGames(data.user.email);
 
     return (
         <div className="flex flex-wrap gap-10">
-            {games.map((game, idx) => (
+            {gameData.map((game, idx) => (
                 <div key={idx}>
                     <Image
                         className="rounded-md"
